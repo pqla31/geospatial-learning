@@ -216,3 +216,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# 地学数据不入仓（遥感影像/点云/矢量都很大）
+*.tif
+*.tiff
+*.img
+*.shp
+*.shx
+*.dbf
+*.prj
+*.las
+*.laz
