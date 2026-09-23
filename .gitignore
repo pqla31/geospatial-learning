@@ -217,6 +217,9 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
+# 编辑器配置不入库（各人机器不同，传上去只会互相打架）
+.vscode/
+
 # 地学数据不入仓（遥感影像/点云/矢量都很大）
 *.tif
 *.tiff
