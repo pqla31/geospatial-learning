@@ -48,9 +48,11 @@ print(df[~(df['ndvi'] > 0.5)])
 # ---------- 6. 选完再统计 ----------
 sub = df[df['ndvi'] > 0.5]
 print(f'\n--- 高植被（NDVI>0.5）共 {len(sub)} 行，NDVI 均值 {sub["ndvi"].mean():.3f} ---')
-
-
+print('\n')
+print('\n')
 # ---------- 自己动手 ----------
 # 1. 改成：取「宣城-02 且 6 月以后（含6月）」的行。日期是字符串"2026-06"，可以直接比较大小 df['date'] >= '2026-06'
 # 2. 算一下「合肥-01」4 个月的 NDVI 均值（提示：先筛选 station，再取 ndvi 列 .mean()）
+hf = (df[df['station'] == '合肥-01'] ['ndvi'].mean())
+print(f"「合肥-01」4 个月的 NDVI 均值:{hf:.3f}")
 # 3. 用 .str.contains('宣城') 取所有站名带"宣城"的行——这比 isin 列举省事
