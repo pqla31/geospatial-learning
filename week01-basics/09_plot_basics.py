@@ -16,7 +16,7 @@ ax.set_xticks([0,np.pi/2,np.pi,3*np.pi/2,2*np.pi])
 ax.legend(loc='upper right')
 ax.grid(True,linestyle='--',alpha=0.3)
 fig.tight_layout()
-fig.savefig("sin_cos.png",dpi=150,bbox_inches='tight')
+fig.savefig('week01-basics/sin_cos.png',dpi=150,bbox_inches='tight')
 plt.show()
 
 plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']   # 中文标题，不配就是方框
