@@ -30,10 +30,15 @@ print(df.groupby('station').size())
 # ---------- 5. 多列分组 ----------
 df['month'] = df['date'].str[-2:]       # '2026-04' -> '04'
 print('\n--- 按 station+month 分组的 ndvi 均值 ---')
+print(df['month'])
 print(df.groupby(['station', 'month'])['ndvi'].mean())
-
+print (df.groupby('station')) 
 
 # ---------- 自己动手 ----------
 # 1. 单独 print df.groupby('station') 看输出是什么——记住它是个分组对象，不链统计方法就没数
 # 2. 算每个站的 NDVI 标准差 std，看哪个站月际波动最大
+print('\n' + str(df.groupby('station').agg(
+    ndvi_std=('ndvi','std'))))
 # 3. df.groupby('station')['elevation'].first() 和 .mean() 输出一样吗？想想为什么（高程每站固定）
+print('\n' + str(df.groupby('station')['elevation'].first()))
+print('\n' + str(df.groupby('station')['elevation'].mean()))

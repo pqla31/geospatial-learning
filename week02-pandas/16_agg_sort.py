@@ -47,5 +47,10 @@ print(df.sort_values(['station', 'rank_in_station']))
 
 # ---------- 自己动手 ----------
 # 1. 把 agg(['mean','std','max','min']) 里的 std 去掉换成 median（中位数），看均值和中位数差多少
+print('\n--- 每站 ndvi：mean/median/max/min ---')
+print(df.groupby('station')['ndvi'].agg(['mean', 'median', 'max', 'min']))
 # 2. sort_values(['station','ndvi']) 不传 ascending，默认是什么？传 ascending=[False,True] 又是什么？
 # 3. 用 rank(method='dense') 代替 method='min'，对比输出差异（并列名次处理不同）
+df['rank_in_station'] = df.groupby('station')['ndvi'].rank(ascending=False, method='dense')
+print('\n--- 每站内部 ndvi 排名（dense） ---')
+print(df.sort_values(['station', 'rank_in_station']))
