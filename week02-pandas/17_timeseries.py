@@ -28,7 +28,7 @@ print(df.loc['2026-05':'2026-07'])
 # ---------- 3. 取时间成分 ----------
 # 当 date 是索引时，直接用 .month / .year（不需要 .dt）
 print('\n--- df.index.month ---')
-print(df.index.month)
+print(df.index.month.unique())
 print('\n--- df.index.year.unique() ---')
 print(df.index.year.unique())
 
@@ -53,5 +53,8 @@ print(df[['ndvi']].resample('Q').mean())
 
 # ---------- 自己动手 ----------
 # 1. df.loc["2026-06"] 只取 6 月——试试用单个日期切片（不传区间）
+print(df.loc['2026-06'])
 # 2. resample("M").agg(["mean","max","min"]) 看每月极值范围
+print(df[['ndvi']].resample('ME').agg(['mean','max','min']))
 # 3. df.reset_index()["date"].dt.dayofweek 看每条观测是星期几（0=周一，6=周日）
+print(df.reset_index()['date'].dt.dayofweek)
