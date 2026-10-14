@@ -23,6 +23,7 @@ conda env list              # 看有哪些环境
 |---|---|
 | `week01-basics/` | Python 基础 + NumPy + matplotlib 练习 |
 | `week02-pandas/` | pandas 表格数据处理练习 |
+| `week03-geopandas/` | GeoPandas 空间数据练习 |
 | `notes/` | 学习笔记和踩坑记录 |
 | `data/` | 数据文件，**不入库**（已写进 .gitignore） |
 
