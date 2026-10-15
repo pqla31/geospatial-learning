@@ -24,6 +24,7 @@ gdf = gpd.GeoDataFrame(
 )
 print('\n--- 变成 GeoDataFrame 后 ---')
 print(gdf.dtypes)
+print(df)
 print('CRS:', gdf.crs.to_epsg())
 
 

@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "stations",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "station": "宣城-01", "date": "2026-04", "lon": 118.76, "lat": 30.94, "ndvi": 0.42, "elevation": 42 }, "geometry": { "type": "Point", "coordinates": [ 118.76, 30.94 ] } },
+{ "type": "Feature", "properties": { "station": "宣城-02", "date": "2026-04", "lon": 118.81, "lat": 30.9, "ndvi": 0.38, "elevation": 58 }, "geometry": { "type": "Point", "coordinates": [ 118.81, 30.9 ] } },
+{ "type": "Feature", "properties": { "station": "合肥-01", "date": "2026-04", "lon": 117.23, "lat": 31.82, "ndvi": 0.31, "elevation": 31 }, "geometry": { "type": "Point", "coordinates": [ 117.23, 31.82 ] } }
+]
+}
