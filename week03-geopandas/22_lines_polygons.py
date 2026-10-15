@@ -37,14 +37,20 @@ print(f'5km 走廊面积: {corridor.iloc[0].area/1e6:.1f} km²')
 
 
 # ---------- 5. 画出来：三层叠图 ----------
+# 注意：geopandas 的多边形 .plot(label=...) 传不进图例（折线可以），
+# 所以走廊这项要用 matplotlib 的 Patch 手动补进图例
+from matplotlib.patches import Patch
+
 fig, ax = plt.subplots(figsize=(8, 6))
 gdf_area_m.boundary.plot(ax=ax, color='gray', linewidth=1, label='研究区')
-corridor.plot(ax=ax, color='orange', alpha=0.5, label='5km 走廊')
+corridor.plot(ax=ax, color='orange', alpha=0.5)
 gdf_line_m.plot(ax=ax, color='red', linewidth=2, label='高速公路')
 ax.set_title('高速公路 5 公里走廊与研究区')
 ax.set_xlabel('X (米, Web Mercator)')
 ax.set_ylabel('Y (米)')
-ax.legend()
+handles, labels = ax.get_legend_handles_labels()
+handles.append(Patch(facecolor='orange', alpha=0.5, label='5km 走廊'))
+ax.legend(handles=handles)
 fig.tight_layout()
 fig.savefig('week03-geopandas/highway_corridor.png', dpi=150)
 print('\n图已保存：week03-geopandas/highway_corridor.png')

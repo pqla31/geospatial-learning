@@ -48,4 +48,9 @@ print(buf_deg.area, '平方度（无意义单位，别这么用）')
 # ---------- 自己动手 ----------
 # 1. 把 buffer 改成 5000 米和 20000 米，看面积是不是 4 倍和 16 倍关系（πr²）
 # 2. 用 .distance() 算合肥→芜湖的距离，三个距离中哪段最长
+d_xc_wh = cities_m.geometry.iloc[0].distance(cities_m.geometry.iloc[2])
 # 3. to_crs('EPSG:32651') 换成 UTM 51N 投影，buffer 10km 的面积和 3857 差多少
+cities_m = cities.to_crs('EPSG:32651')
+print(cities_m.geometry.iloc[0])
+a = cities_m.geometry.buffer(10000)
+print(a.area)

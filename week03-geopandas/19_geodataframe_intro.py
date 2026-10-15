@@ -53,6 +53,14 @@ print('\ntotal_bounds:', cities.total_bounds)
 
 # ---------- 自己动手 ----------
 # 1. 给 cities 加一行你家乡的城市（先查它的经纬度，注意经度在前）
+new_cities = gpd.GeoDataFrame({
+    'name':['长治'],
+    'pop':[876],
+    'geometry':[Point(112.59,35.49)]
+    })
+new_cities.crs = "EPSG:4326"
+cities = pd.concat([cities,new_cities],ignore_index=True)
+print("新",cities)
 # 2. cities.geometry.distance(Point(120.0, 30.0)) 算各点到杭州的距离（单位还是度）
 print('\n',cities.geometry.distance(Point(120.0, 30.0)))
 # 3. 用上周的 groupby 思路试试：cities.groupby 后按 x 坐标排序（提示 sort_values 用 cities.geometry.x）
