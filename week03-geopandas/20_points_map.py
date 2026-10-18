@@ -24,7 +24,6 @@ gdf = gpd.GeoDataFrame(
 )
 print('\n--- 变成 GeoDataFrame 后 ---')
 print(gdf.dtypes)
-print(df)
 print('CRS:', gdf.crs.to_epsg())
 
 
@@ -39,7 +38,7 @@ print(gdf_stations[['station', 'lon', 'lat', 'geometry']])
 # column='station'：按站点着色；legend=True：出图例
 fig, ax = plt.subplots(figsize=(7, 6))
 gdf_stations.plot(ax=ax, column='station', legend=True,
-                  markersize=100, cmap='tab10')
+                  markersize=300, cmap='tab10')
 ax.set_title('三个观测站点的空间分布')
 ax.set_xlabel('经度')
 ax.set_ylabel('纬度')

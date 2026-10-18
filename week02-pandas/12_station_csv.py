@@ -60,6 +60,7 @@ df2['level'] = df2['ndvi'].apply(grade)
 
 print('\n--- 分级结果 ---')
 print(df2[['station', 'date', 'ndvi', 'level']])
+
 print('\n--- 每级各有多少行 ---')
 print(df2['level'].value_counts())
 
