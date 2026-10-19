@@ -228,5 +228,6 @@ __marimo__/
 *.shx
 *.dbf
 *.prj
+*.cpg
 *.las
 *.laz

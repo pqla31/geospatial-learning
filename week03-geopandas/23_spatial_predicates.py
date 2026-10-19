@@ -12,12 +12,12 @@ point = Point(117.23, 31.82)
 hefei_qu = Polygon([(116.5, 31.5), (118.0, 31.5),
                     (118.0, 32.5), (116.5, 32.5)])
 # 宣城在东（118.76 > 118.0），落进"宣城区"
-xuancheng_qu = Polygon([(118.0, 30.5), (119.5, 30.5),
-                        (119.5, 31.5), (118.0, 31.5)])
+xuancheng_qu = Polygon([(117.5, 30.5), (119.5, 30.5), 
+                        (119.5, 31.5), (117.5, 31.5)])
 
 print('=== 1. 三个谓词各 print 一遍 ===')
 print(f'合肥-01 点坐标: {point}')
-print(f'合肥区边界: {hefei_qu.bounds}')   # (minx, miny, maxx, maxy)
+print(f'合肥区边界: {hefei_qu.bounds}')   # (minx, miny, maxx, maxy)/。
 print(f'宣城区边界: {xuancheng_qu.bounds}')
 print()
 
