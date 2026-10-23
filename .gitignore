@@ -223,6 +223,7 @@ __marimo__/
 # 地学数据不入仓（遥感影像/点云/矢量都很大）
 *.tif
 *.tiff
+*.aux.xml
 *.img
 *.shp
 *.shx
