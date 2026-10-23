@@ -43,10 +43,10 @@ for i in range(1, src.count + 1):
 
 # ---------- 4. 坐标 → 像元号：把站点对到像元 ----------
 # 合肥-01 站点坐标（Week 2 那张表）
-lon, lat = 117.23, 31.82
+lon, lat = 118.76, 30.94
 row, col = src.index(lon, lat)    # 经纬度 → 行列号
 print(f'\n=== 站点采样 ===')
-print(f'合肥-01 ({lon}, {lat}) 落在 row={row}, col={col}')
+print(f'宣城-01 ({lon}, {lat}) 落在 row={row}, col={col}')
 val = src.read()[:, row, col]      # 该像元 4 波段值
 print(f'该像元 4 波段值: B={val[0]:.3f} G={val[1]:.3f} R={val[2]:.3f} NIR={val[3]:.3f}')
 
@@ -62,6 +62,7 @@ ndvi = (nir - red) / (nir + red)
 print(f'\n=== NDVI 栅格 ===')
 print(f'shape={ndvi.shape}, range [{ndvi.min():.3f}, {ndvi.max():.3f}]')
 print(f'整景 NDVI 均值: {ndvi.mean():.3f}')
+print(src.profile)
 
 src.close()
 print('\n27 完成。下一题：28 出图看四个波段长什么样。')
