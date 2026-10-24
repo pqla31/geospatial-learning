@@ -64,11 +64,28 @@ print(f'  → 9 个像元的 NIR 值，看站点周围地物均不均匀')
 
 # ---------- 5. 窗口写回：复制一小块到新文件 ----------
 # 实战场景：从大影像裁出一小块研究区单独存档
+# 关键：裁剪后窗口的左上角坐标变了，必须用 windows.transform 算新 transform
 profile = src.profile.copy()
-profile.update(width=20, height=10)
+profile.update(width=20, height=10,
+               transform=rasterio.windows.transform(water_win, src.transform))
 with rasterio.open('week04-rasterio/water_clip.tif', 'w', **profile) as f:
     f.write(water)
 print(f'\n已裁出水体块到 water_clip.tif ({water.nbytes/1024:.1f} KB)')
+
+#def1  宣城-01 周围 0.2 度块
+lon2, lat2 = 118.76, 30.94
+row2, col2 = src.index(lon2, lat2)
+offset_col=int(0.1/src.transform.a)
+offset_row=int(0.1/abs(src.transform.e))
+width_px=offset_col*2
+height_px=offset_row*2
+window = Window(col2-offset_col,row2-offset_row,width_px,height_px)
+hood2 = src.read(window=window)
+profiles=src.profile.copy()
+profiles.update(width=width_px,height=height_px,transform=rasterio.windows.transform(window,src.transform))
+with rasterio.open('week04-rasterio/xc_clip.tif', 'w', **profiles) as f:
+    f.write(hood2)
+
 
 src.close()
 print('\n30 完成。')
@@ -76,6 +93,7 @@ print('\n30 完成。')
 
 # ---------- 自己动手 ----------
 # 1. 用手动换算裁出宣城-01 (118.76, 30.94) 周围 0.2 度的块，存成 tif
+
 #    （0.2 度 ≈ 22 km，足够覆盖一个小流域。算 col_off/row_off 时记得 ±0.1 居中）
 # 2. 对比 water_clip.tif 和原 sample.tif 的 transform——
 #    裁剪后 transform 的 .c/.f（左上角坐标）应该变了，但 .a/.e（像元尺寸）不变
