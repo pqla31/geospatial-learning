@@ -7,6 +7,7 @@
 """
 import numpy as np
 import rasterio
+from rasterio.windows import Window
 
 src = rasterio.open('week04-rasterio/sample.tif')
 
@@ -42,6 +43,7 @@ for i in range(1, src.count + 1):
           f'mean={band.mean():.3f} shape={band.shape}')
 
 # ---------- 4. 坐标 → 像元号：把站点对到像元 ----------
+# 1. 把宣城-01 (118.76, 30.94) 也对到像元，看它落在哪、4 波段值多少。
 # 合肥-01 站点坐标（Week 2 那张表）
 lon, lat = 118.76, 30.94
 row, col = src.index(lon, lat)    # 经纬度 → 行列号
@@ -59,9 +61,16 @@ print(f'该像元左上角: {src.transform * (col, row)}')   # transform 可像�
 arr = src.read()                  # (4, 40, 60) — (波段, 行, 列)
 red, nir = arr[2], arr[3]
 ndvi = (nir - red) / (nir + red)
-print(f'\n=== NDVI 栅格 ===')
+print(f'\n=== NDVI 栅格（全图）===')
 print(f'shape={ndvi.shape}, range [{ndvi.min():.3f}, {ndvi.max():.3f}]')
 print(f'整景 NDVI 均值: {ndvi.mean():.3f}')
+
+# ---------- 7. 自选：站点 3×3 窗口读取对比 ----------
+# 只读站点周围 3×3 像元（站点居中），看局部 vs 全图
+window_arr = src.read(window=Window(col - 1, row - 1, 3, 3))
+w_ndvi = (window_arr[3] - window_arr[2]) / (window_arr[3] + window_arr[2])
+print(f'\n=== 站点 3×3 窗口 NDVI ===')
+print(f'shape={w_ndvi.shape}, 均值 {w_ndvi.mean():.3f} (vs 全图 {ndvi.mean():.3f})')
 print(src.profile)
 
 src.close()

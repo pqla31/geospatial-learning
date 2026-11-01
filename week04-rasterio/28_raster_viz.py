@@ -8,6 +8,7 @@
 import numpy as np
 import rasterio
 import matplotlib.pyplot as plt
+from rasterio.windows import Window
 
 plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']
 plt.rcParams['axes.unicode_minus'] = False
@@ -62,6 +63,12 @@ ax.set_ylabel('纬度')
 fig.tight_layout()
 fig.savefig('week04-rasterio/ndvi_raster.png', dpi=150)
 print('图3已存: ndvi_raster.png')
+
+#3
+Arr=src.read(window=Window(20, 15, 20, 15))
+red, nir =Arr[2], Arr[3]
+ndvi = (nir - red) / (nir + red)
+print(np.mean(ndvi),"22222")
 
 src.close()
 print('\n28 完成。打开三张图核对：')
