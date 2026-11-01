@@ -25,6 +25,7 @@ conda env list              # 看有哪些环境
 | `week02-pandas/` | pandas 表格数据处理练习 |
 | `week03-geopandas/` | GeoPandas 空间数据练习（矢量） |
 | `week04-rasterio/` | rasterio 遥感影像处理练习（栅格） |
+| `week05-frontend/` | 前端 HTML/CSS 练习 |
 | `notes/` | 学习笔记和踩坑记录 |
 | `data/` | 数据文件，**不入库**（已写进 .gitignore） |
 

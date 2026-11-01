@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>GIS 学习记录 | geospatial-learning</title>
+</head>
+<body>
+
+<!-- ========== 页头：网站标题 + 导航 ========== -->
+<header>
+    <h1>GIS 学习记录</h1>
+    <p>合肥工业大学（宣城校区）· 地球信息科学与技术 · 2025 级</p>
+
+    <nav>
+        <ul>
+            <li><a href="#week01">Week 1 基础</a></li>
+            <li><a href="#week02">Week 2 pandas</a></li>
+            <li><a href="#week03">Week 3 GeoPandas</a></li>
+            <li><a href="#week04">Week 4 rasterio</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ========== 主体：每周一个 section ========== -->
+<main>
+
+    <!-- Week 1 -->
+    <section id="week01">
+        <h2>Week 1 — Python 基础 + NumPy + matplotlib</h2>
+        <p>从零开始学 Python：变量、数据类型、列表字典、函数、文件读写。
+        然后进 NumPy 数组运算，最后用 matplotlib 画第一张 NDVI 图。</p>
+
+        <h3>本周成果</h3>
+        <ul>
+            <li>01-06：Python 基础练习（变量、f-string、datetime、函数、文件读写）</li>
+            <li>07-08：NumPy 数组 + NDVI 计算</li>
+            <li>09-10：matplotlib 折线/散点/柱状/NDVI 热力图</li>
+        </ul>
+
+        <h3>NDVI 空间分布图</h3>
+        <p>用 NumPy 算 NDVI，matplotlib 渲染。红色是水体（负值），绿色是植被（正值）。</p>
+        <img src="../week01-basics/ndvi_map.png" alt="NDVI 空间分布热力图" width="400">
+    </section>
+
+    <!-- Week 2 -->
+    <section id="week02">
+        <h2>Week 2 — pandas 表格数据处理</h2>
+        <p>学 pandas 四块核心：表格入门、选择筛选、分组聚合、时间序列。
+        用 12 行站点观测表（3 站点 × 4 个月）做练手素材。</p>
+
+        <h3>本周成果</h3>
+        <ul>
+            <li>11-12：DataFrame 入门 + CSV 读写</li>
+            <li>13-14：loc/iloc + 条件筛选</li>
+            <li>15-16：groupby/agg/sort_values</li>
+            <li>17-18：时间序列 + pandas 绘图</li>
+        </ul>
+
+        <h3>三站点 NDVI 月际变化</h3>
+        <p>三条线 4-7 月全上升，合肥-01 整条最低，宣城-01 最高。</p>
+        <img src="../week02-pandas/ndvi_timeseries.png" alt="三站点 NDVI 月际变化折线图" width="400">
+    </section>
+
+    <!-- Week 3 -->
+    <section id="week03">
+        <h2>Week 3 — GeoPandas 空间数据（矢量）</h2>
+        <p>GeoDataFrame = DataFrame + 几何列。学了几何操作、重投影、空间查询、
+        shapefile I/O，最后出了一张行政区 NDVI 分级综合图。</p>
+
+        <h3>本周成果</h3>
+        <ul>
+            <li>19-20：GeoDataFrame 入门 + 站点地图</li>
+            <li>21-22：buffer/area/distance + 重投影 3857</li>
+            <li>23-24：intersects/within + sjoin 空间连接</li>
+            <li>25-26：shapefile 5 件套 + 综合出图</li>
+        </ul>
+
+        <h3>行政区 NDVI 分级 + 站点缓冲区</h3>
+        <p>合肥区偏红（NDVI 0.49）、宣城区偏绿（0.58），三站点带 5km 缓冲圈。</p>
+        <img src="../week03-geopandas/composite_map.png" alt="行政区 NDVI 分级与站点缓冲区综合图" width="400">
+    </section>
+
+    <!-- Week 4 -->
+    <section id="week04">
+        <h2>Week 4 — rasterio 遥感影像（栅格）</h2>
+        <p>学栅格数据：读 tif、认识 transform/CRS、重投影、窗口读取、
+        矢栅联动（mask 裁栅格 + 站点像元提取），最后串成完整 NDVI 分区统计流程。</p>
+
+        <h3>本周成果</h3>
+        <ul>
+            <li>gen + 27-28：造教学影像 + rasterio 读 tif + 四波段出图</li>
+            <li>29-30：重投影 4326→UTM + 窗口读取</li>
+            <li>31-32：mask 裁栅格 + 站点像元提取</li>
+            <li>33：学期项目收口（完整流程）</li>
+        </ul>
+
+        <h3>四波段灰度图</h3>
+        <p>NIR 波段植被区最亮、水体最暗——近红外是区分植被水体的最佳波段。</p>
+        <img src="../week04-rasterio/bands_gray.png" alt="四波段灰度图" width="400">
+    </section>
+
+</main>
+
+<!-- ========== 页脚 ========== -->
+<footer>
+    <hr>
+    <p>仓库：<a href="https://github.com/pqla31/geospatial-learning">github.com/pqla31/geospatial-learning</a></p>
+    <p>2026-09 开始 · 持续更新中</p>
+</footer>
+
+</body>
+</html>
