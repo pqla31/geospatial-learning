@@ -1,0 +1,108 @@
+/* ============================================
+   style.css — GIS 学习记录页面样式
+   Week 5 Day 2：CSS 基础
+
+   CSS = Cascading Style Sheets（层叠样式表）
+   作用：给 HTML 结构穿衣服——颜色、字体、间距、布局
+
+   基本语法：
+       选择器 { 属性: 值; 属性: 值; }
+   例：
+       h1 { color: blue; font-size: 32px; }
+   意思：所有 <h1> 标签，文字蓝色，字号 32 像素
+   ============================================ */
+
+/* ---------- 全局：整个页面的基调 ---------- */
+body {
+    font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;  /* 字体：微软雅黑 */
+    max-width: 820px;        /* 内容最宽 820px，大屏不会拉太长 */
+    margin: 0 auto;          /* 上下 0、左右 auto（居中） */
+    padding: 20px;           /* 内容离边缘 20px */
+    background: #f5f6f7;     /* 页面背景浅灰 */
+    color: #333;             /* 正文深灰（比纯黑柔和） */
+    line-height: 1.7;        /* 行高 1.7 倍，中文更易读 */
+}
+
+/* ---------- 页头：渐变背景 + 白字 ---------- */
+header {
+    background: linear-gradient(135deg, #2c3e50, #3498db);  /* 深蓝到亮蓝渐变 */
+    color: #fff;
+    text-align: center;      /* 文字居中 */
+    padding: 40px 20px;      /* 上下 40、左右 20 的内边距 */
+    border-radius: 10px;     /* 圆角 */
+}
+header h1 {
+    margin: 0 0 8px;         /* 清掉默认边距，标题和副标题靠近 */
+    font-size: 2em;          /* 2 倍字号 */
+}
+header p {
+    margin: 0;
+    color: #dce8f2;          /* 副标题浅一点，有层次 */
+}
+
+/* ---------- 导航：竖排列表 → 横排菜单 ---------- */
+nav ul {
+    list-style: none;        /* 去掉列表前面的圆点 */
+    padding: 0;
+    margin: 20px 0 0;
+}
+nav li {
+    display: inline-block;   /* 列表项横排 */
+    margin: 0 12px;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;   /* 去掉链接下划线 */
+    font-weight: bold;
+}
+nav a:hover {                /* :hover = 鼠标悬停时 */
+    text-decoration: underline;
+}
+
+/* ---------- 章节：白色卡片 ---------- */
+section {
+    background: #fff;
+    padding: 24px 28px;
+    margin: 24px 0;          /* 卡片之间的间距 */
+    border-radius: 10px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);  /* 轻微投影，有立体感 */
+}
+
+/* 二级标题：左侧蓝色竖线 */
+h2 {
+    color: #2c3e50;
+    border-left: 5px solid #3498db;
+    padding-left: 12px;
+}
+
+/* 三级标题 */
+h3 {
+    color: #34495e;
+}
+
+/* ---------- 图片：自适应 + 圆角 ---------- */
+img {
+    max-width: 100%;         /* 不超过容器宽度（手机上也不溢出） */
+    height: auto;            /* 高度按比例缩放 */
+    border-radius: 6px;
+    display: block;          /* 独占一行，不和其他内容挤 */
+}
+
+/* 链接统一颜色 */
+a {
+    color: #3498db;
+}
+footer a {
+    text-decoration: none;
+}
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- 页脚：低调灰色 ---------- */
+footer {
+    text-align: center;
+    color: #888;
+    padding: 24px 0;
+    font-size: 0.9em;        /* 稍小一号 */
+}
