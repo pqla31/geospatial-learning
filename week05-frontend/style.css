@@ -63,14 +63,14 @@ nav a:hover {                /* :hover = 鼠标悬停时 */
 section {
     background: #fff;
     padding: 24px 28px;
-    margin: 24px 0;          /* 卡片之间的间距 */
+    margin: 60px 0;          /* 卡片之间的间距 */
     border-radius: 10px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);  /* 轻微投影，有立体感 */
 }
 
 /* 二级标题：左侧蓝色竖线 */
 h2 {
-    color: #2c3e50;
+    color: #e74c3c;
     border-left: 5px solid #3498db;
     padding-left: 12px;
 }
@@ -105,4 +105,9 @@ footer {
     color: #888;
     padding: 24px 0;
     font-size: 0.9em;        /* 稍小一号 */
+}
+
+/* 学习心得区：绿色左边线 */
+#notes {
+    border-left: 5px solid #2ecc71;
 }
