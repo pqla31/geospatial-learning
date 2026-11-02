@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>GIS 学习作品集 | geospatial-learning</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ========== Hero：大标题 + 简介 + 技能标签 ========== -->
+<header class="hero">
+    <h1>GIS 学习作品集</h1>
+    <p>地球信息科学与技术 · 合肥工业大学宣城校区 · 2025 级</p>
+
+    <div class="skills">
+        <span class="tag">Python</span>
+        <span class="tag">NumPy</span>
+        <span class="tag">pandas</span>
+        <span class="tag">GeoPandas</span>
+        <span class="tag">rasterio</span>
+        <span class="tag">matplotlib</span>
+        <span class="tag">HTML</span>
+        <span class="tag">CSS</span>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#projects">项目</a></li>
+            <li><a href="#timeline">学习时间线</a></li>
+            <li><a href="#about">关于</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <!-- ========== 项目卡片网格（grid 两列） ========== -->
+    <section id="projects">
+        <h2>项目</h2>
+        <p>5 周从零到能独立跑通 NDVI 分区统计完整流程。以下是每周核心成果。</p>
+
+        <div class="projects">
+            <!-- Week 1 -->
+            <div class="project-card">
+                <img src="../week01-basics/ndvi_map.png" alt="NDVI 空间分布">
+                <h3>Week 1 — Python + NumPy + matplotlib</h3>
+                <p>从零学 Python，用 NumPy 算 NDVI（近红外-红）/（近红外+红），
+                matplotlib 渲染热力图。红是水体（负值），绿是植被（正值）。</p>
+            </div>
+
+            <!-- Week 2 -->
+            <div class="project-card">
+                <img src="../week02-pandas/ndvi_timeseries.png" alt="NDVI 月际变化">
+                <h3>Week 2 — pandas 表格处理</h3>
+                <p>12 行站点观测表，学 DataFrame/筛选/分组聚合/时间序列。
+                三站点 NDVI 4-7 月全上升，合肥最低、宣城最高。</p>
+            </div>
+
+            <!-- Week 3 -->
+            <div class="project-card">
+                <img src="../week03-geopandas/composite_map.png" alt="行政区 NDVI 分级">
+                <h3>Week 3 — GeoPandas 空间数据</h3>
+                <p>矢量数据全套：GeoDataFrame/buffer/重投影/sjoin/shapefile。
+                行政区 NDVI 分级 + 站点 5km 缓冲区综合图。</p>
+            </div>
+
+            <!-- Week 4 -->
+            <div class="project-card">
+                <img src="../week04-rasterio/pipeline_map.png" alt="NDVI 分区统计综合图">
+                <h3>Week 4 — rasterio 遥感影像</h3>
+                <p>栅格数据全套：读 tif/重投影/窗口读取/矢栅联动。
+                学期项目收口——NDVI 计算 + 分区统计 + 站点提取完整流程。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 学习时间线 ========== -->
+    <section id="timeline">
+        <h2>学习时间线</h2>
+        <table>
+            <tr>
+                <th>时间</th>
+                <th>内容</th>
+                <th>脚本数</th>
+            </tr>
+            <tr>
+                <td>2026-09-22 ~ 10-09</td>
+                <td>Week 1：Python 基础 → NumPy → matplotlib</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>2026-10-10 ~ 10-13</td>
+                <td>Week 2：pandas 表格处理</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>2026-10-14 ~ 10-19</td>
+                <td>Week 3：GeoPandas 矢量数据</td>
+                <td>8</td>
+            </tr>
+            <tr>
+                <td>2026-10-20 ~ 10-27</td>
+                <td>Week 4：rasterio 栅格遥感</td>
+                <td>7</td>
+            </tr>
+            <tr>
+                <td>2026-11-01 ~ 11-02</td>
+                <td>Week 5：前端 HTML/CSS</td>
+                <td>2 页面</td>
+            </tr>
+        </table>
+        <p>合计：35 个练习脚本 + 2 个网页 + 15 张成果图。</p>
+    </section>
+
+    <!-- ========== 关于 ========== -->
+    <section id="about">
+        <h2>关于</h2>
+        <p>这个仓库记录了从 2026 年 9 月 22 日开始的 GIS 自学过程。
+        从"连 git add 都没听过"到能独立跑通 NDVI 分区统计完整流程，用了 5 周。</p>
+        <p>方向：GIS 开发 / 遥感应用 / 三维可视化。
+        目标：本科就业，不考研。</p>
+        <p>仓库：<a href="https://github.com/pqla31/geospatial-learning">github.com/pqla31/geospatial-learning</a></p>
+    </section>
+
+</main>
+
+<footer>
+    <hr>
+    <p>2026-09 开始 · 持续更新中</p>
+</footer>
+
+</body>
+</html>
