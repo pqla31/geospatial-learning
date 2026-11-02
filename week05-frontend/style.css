@@ -40,15 +40,20 @@ header p {
     color: #dce8f2;          /* 副标题浅一点，有层次 */
 }
 
-/* ---------- 导航：竖排列表 → 横排菜单 ---------- */
+/* ---------- 导航：flexbox 横排菜单 ---------- */
+/* Day 3：从 inline-block 升级到 flexbox
+   flexbox 是现代 CSS 布局的主力——对齐、间距、换行全靠它 */
 nav ul {
-    list-style: none;        /* 去掉列表前面的圆点 */
+    list-style: none;
     padding: 0;
     margin: 20px 0 0;
+    display: flex;              /* flex 布局 */
+    justify-content: center;    /* 水平居中 */
+    gap: 20px;                  /* 项之间间距 20px（替代 margin） */
+    flex-wrap: wrap;            /* 空间不够时自动换行 */
 }
 nav li {
-    display: inline-block;   /* 列表项横排 */
-    margin: 0 12px;
+    margin: 0;                  /* flex 用 gap 控间距，li 不需要 margin 了 */
 }
 nav a {
     color: #fff;
@@ -110,4 +115,30 @@ footer {
 /* 学习心得区：绿色左边线 */
 #notes {
     border-left: 5px solid #2ecc71;
+}
+
+/* ============================================
+   Day 3：响应式布局 @media
+   屏幕宽度 < 600px（手机）时自动调整：
+   导航变竖排、边距减小、标题缩小
+   ============================================ */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;          /* 减小页面边距 */
+    }
+    header {
+        padding: 24px 12px;     /* 减小页头内边距 */
+    }
+    header h1 {
+        font-size: 1.5em;       /* 标题缩小 */
+    }
+    nav ul {
+        flex-direction: column;  /* 导航从横排变竖排 */
+        align-items: center;     /* 竖排时居中 */
+        gap: 8px;                /* 竖排间距小一点 */
+    }
+    section {
+        padding: 16px;          /* 卡片内边距减小 */
+        margin: 16px 0;         /* 卡片间距减小 */
+    }
 }
