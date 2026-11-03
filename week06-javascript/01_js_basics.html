@@ -12,6 +12,7 @@
     <p>点击下面的按钮，看 JavaScript 怎么让页面动起来。</p>
     <p>点击次数：<span id="count" style="font-size: 1.5em; font-weight: bold; color: #e74c3c;">0</span></p>
     <button id="btn" style="padding: 10px 24px; font-size: 1.1em; cursor: pointer;">点击我</button>
+    <button id="reset" style="padding: 10px 24px; font-size: 1.1em; cursor: pointer; margin-left: 8px;">重置</button>
 </section>
 
 <!-- JavaScript 写在 <script> 标签里，通常放 body 最末尾 -->
@@ -19,7 +20,7 @@
     // ===== 1. 变量声明 =====
     // let = 可变变量（类似 Python 的普通变量）
     // const = 不可重新赋值（Python 没有直接对应，约定大写变量名）
-    let count = 0;                                    // 计数器，会变
+    let count = 0;                                   // 计数器，会变
     const titleEl = document.querySelector('#title');  // 选到的元素不会再换
     const btn = document.querySelector('#btn');
     const countEl = document.querySelector('#count');
@@ -34,7 +35,7 @@
     // addEventListener('事件类型', 函数)
     // 点击按钮时，自动运行里面的函数
     btn.addEventListener('click', function() {
-        count = count + 1;                       // 计数 +1
+        count = count + 2;                       // 自选：改成了 +2
         countEl.textContent = count;             // 改页面上的数字
         console.log('第', count, '次点击');
 
@@ -49,6 +50,16 @@
             titleEl.textContent = '别点了，都 ' + count + ' 次了';
             titleEl.style.color = '#95a5a6';
         }
+    });
+
+    // 重置按钮：独立监听，不在上面的函数里
+    const resetBtn = document.querySelector('#reset');
+    resetBtn.addEventListener('click', function() {
+        count = 0;
+        countEl.textContent = 0;
+        titleEl.textContent = 'Hello JavaScript';
+        titleEl.style.color = '';
+        console.log('已重置');
     });
 
     /* ===== 4. JS 和 Python 的语法对比（看注释就行）=====
