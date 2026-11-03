@@ -40,11 +40,11 @@
         console.log('第', count, '次点击');
 
         // 根据次数改标题文字
-        if (count === 5) {
-            titleEl.textContent = '点了 5 次！';
+        if (count === 6) {
+            titleEl.textContent = '点了 6 次！';
             titleEl.style.color = '#e74c3c';
-        } else if (count === 10) {
-            titleEl.textContent = '十次了！厉害';
+        } else if (count === 12) {
+            titleEl.textContent = '十er次了！厉害';
             titleEl.style.color = '#2ecc71';
         } else if (count >= 20) {
             titleEl.textContent = '别点了，都 ' + count + ' 次了';
@@ -68,9 +68,9 @@
        const PI = 3.14      →  PI = 3.14（约定大写）
        === 严格相等          →  == （JS 多一层：=== 不转类型，== 会转，别用 ==）
        if (条件) { }        →  if 条件:
-       function f(x) { }   →  def f(x):
+       function f(x) { }    →  def f(x):
        // 单行注释          →  #
-       /* 多行注释 */        →  """多行注释"""
+       / * 多行注释 * /      →  """多行注释"""   （注释里别写 /* */，会提前关闭注释块）
     */
 
     // ===== 5. 自己动手 =====
