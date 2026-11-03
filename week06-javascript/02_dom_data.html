@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM 数据渲染 | week06 day2</title>
+    <link rel="stylesheet" href="../week05-frontend/style.css">
+</head>
+<body>
+
+<section>
+    <h1>站点 NDVI 数据</h1>
+    <p>下面的卡片是 JavaScript 用数据动态生成的，不是手写的 HTML。</p>
+
+    <!-- 卡片会渲染到这里 -->
+    <div id="cards" class="projects" style="margin-top: 20px;"></div>
+</section>
+
+<section>
+    <h2>JS 核心：数据 → HTML</h2>
+    <p>Day 1 是"点按钮改文字"——手动改一个元素。今天是"用数据批量生成元素"。</p>
+    <p>按 F12 → Console，能看到数据加载的日志。</p>
+</section>
+
+<script>
+    // ===== 1. 数据：Week 2 的 3 个站点 NDVI 均值 =====
+    const stations = [
+        { name: '合肥-01', ndvi: 0.488, nir: 0.230, type: '城市' },
+        { name: '宣城-01', ndvi: 0.734, nir: 0.447, type: '植被' },
+        { name: '宣城-02', ndvi: 0.624, nir: 0.437, type: '植被' },
+    ];
+
+    console.log('站点数据:', stations);
+    console.log('站点数量:', stations.length);
+
+    // ===== 2. 选容器 =====
+    const container = document.querySelector('#cards');
+
+    // ===== 3. forEach 遍历 + 动态生成卡片 =====
+    // forEach = Python 的 for item in list:
+    stations.forEach(function(s) {
+        console.log('正在生成卡片:', s.name);
+
+        // createElement 创建一个新 div（还不 在页面上）
+        const card = document.createElement('div');
+        card.className = 'project-card';
+
+        // 根据 NDVI 值选颜色
+        let color;
+        if (s.ndvi > 0.6) {
+            color = '#2ecc71';      // 绿：植被
+        } else if (s.ndvi > 0.3) {
+            color = '#f39c12';      // 黄：低植被
+        } else {
+            color = '#e74c3c';      // 红：裸土/城市
+        }
+
+        // innerHTML 一次性写卡片内容
+        // 模板字符串：反引号 ` 包裹，${变量} 插值（类似 Python f-string）
+        card.innerHTML = `
+            <h3>${s.name}</h3>
+            <p style="font-size: 2em; color: ${color}; font-weight: bold; margin: 12px 0;">
+                ${s.ndvi}
+            </p>
+            <p>NIR: ${s.nir} | 类型: ${s.type}</p>
+        `;
+
+        // 点击卡片显示详情
+        card.addEventListener('click', function() {
+            console.log('点击了', s.name, 'NDVI:', s.ndvi);
+            alert(s.name + '\nNDVI: ' + s.ndvi + '\nNIR: ' + s.nir + '\n类型: ' + s.type);
+        });
+
+        // appendChild 把卡片加到页面上
+        container.appendChild(card);
+    });
+
+    console.log('全部卡片生成完成');
+
+    // ===== JS 和 Python 语法对比 =====
+    // 数组 [1,2,3]          →  Python 列表 [1,2,3]
+    // array.forEach(fn)    →  for item in list:
+    // `hello ${name}`      →  f'hello {name}'
+    // createElement('div') →  Python 没有对应（BS4 的 soup.new_tag('div') 类似）
+    // element.innerHTML     →  直接写 HTML 字符串进元素
+    // element.appendChild() →  把元素加到页面上
+</script>
+
+</body>
+</html>
